@@ -21,7 +21,7 @@ class #NOME_CLASSE#BDParent(Conexao):
 			dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
 			o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
 			return o#NOME_CLASSE#
-        return False
+        return None
 
     def presente(self, #LISTA_ATRIBUTOS_CHAVE#):
         oConexao = self.getConexao()
@@ -39,7 +39,7 @@ class #NOME_CLASSE#BDParent(Conexao):
 		dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
 		o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
 		sSql = f"insert into #NOME_TABELA# (#LISTA_CAMPOS_NAO_CHAVE#) values (#VALORES_NAO_CHAVE#)"
-        oConexao.execute(sSql)
+        oConexao.executeInsert(sSql)
         nId = oConexao.getLastId()
         if nId:
             return nId
@@ -52,7 +52,7 @@ class #NOME_CLASSE#BDParent(Conexao):
 		dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
 		o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
 		sSql = f"update #NOME_TABELA# set #ATRIBUICAO_NAO_CHAVE# where #COMPARACAO_CHAVE_ATRIBUTO_ESP#"
-        oConexao.execute(sSql)
+        oConexao.executeInsert(sSql)
         return oConexao.getConsulta()
 
     def recuperaTodos(self, vWhere, sOrder):
@@ -92,11 +92,11 @@ class #NOME_CLASSE#BDParent(Conexao):
     def exclui(self, #LISTA_ATRIBUTOS_CHAVE#):
         oConexao = self.getConexao()
         sSql = f"delete from #NOME_TABELA# where #COMPARACAO_CHAVE_ATRIBUTO#"
-        oConexao.execute(sSql)
+        oConexao.executeInsert(sSql)
         return oConexao.getConsulta()
 
     def desativa(self, #LISTA_ATRIBUTOS_CHAVE#):
         oConexao = self.getConexao()
         sSql = f"update #NOME_TABELA# set ativo = '0' where #COMPARACAO_CHAVE_ATRIBUTO#"
-        oConexao.execute(sSql)
+        oConexao.executeInsert(sSql)
         return oConexao.getConsulta()
