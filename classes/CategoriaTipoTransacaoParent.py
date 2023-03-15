@@ -10,30 +10,30 @@ class CategoriaTipoTransacaoParent:
         return self.nId
 
     def setId(self, nId):
-        self.Id = nId
+        self.nId = nId
 
     def getDescricao(self):
         return self.sDescricao
 
     def setDescricao(self, sDescricao):
-        self.Descricao = sDescricao
+        self.sDescricao = sDescricao
 
     def getDtCadastro(self):
         return self.dDtCadastro
 
     def setDtCadastro(self, dDtCadastro):
-        self.DtCadastro = dDtCadastro
+        self.dDtCadastro = dDtCadastro
 
     def getPublicado(self):
         return self.bPublicado
 
     def setPublicado(self, bPublicado):
-        self.Publicado = bPublicado
+        self.bPublicado = bPublicado
 
     def getAtivo(self):
         return self.bAtivo
 
     def setAtivo(self, bAtivo):
-        self.Ativo = bAtivo
+        self.bAtivo = bAtivo
 
     

@@ -10,30 +10,30 @@ class PermissaoParent:
         return self.nIdTipoTransacao
 
     def setIdTipoTransacao(self, nIdTipoTransacao):
-        self.IdTipoTransacao = nIdTipoTransacao
+        self.nIdTipoTransacao = nIdTipoTransacao
 
     def getIdGrupoUsuario(self):
         return self.nIdGrupoUsuario
 
     def setIdGrupoUsuario(self, nIdGrupoUsuario):
-        self.IdGrupoUsuario = nIdGrupoUsuario
+        self.nIdGrupoUsuario = nIdGrupoUsuario
 
     def getDtCadastro(self):
         return self.dDtCadastro
 
     def setDtCadastro(self, dDtCadastro):
-        self.DtCadastro = dDtCadastro
+        self.dDtCadastro = dDtCadastro
 
     def getPublicado(self):
         return self.bPublicado
 
     def setPublicado(self, bPublicado):
-        self.Publicado = bPublicado
+        self.bPublicado = bPublicado
 
     def getAtivo(self):
         return self.bAtivo
 
     def setAtivo(self, bAtivo):
-        self.Ativo = bAtivo
+        self.bAtivo = bAtivo
 
     

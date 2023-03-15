@@ -20,7 +20,7 @@ class GeradoraBasica:
                 self.sAtributosConstrutor += "{},".format(sAtributo)
                 self.sListaAtributos += "var {}\n".format(sAtributo, sAtributo)
                 self.sGetSet += "def get{}(self):\n        return self.{}\n\n    ".format(sNomeAtributo,sAtributo)
-                self.sGetSet += "def set{}(self, {}):\n        self.{} = {}\n\n    ".format(sNomeAtributo,sAtributo,sNomeAtributo,sAtributo)
+                self.sGetSet += "def set{}(self, {}):\n        self.{} = {}\n\n    ".format(sNomeAtributo,sAtributo,sAtributo,sAtributo)
                 self.sInicializacaoBasica += "self.set{}({})\n        ".format(sNomeAtributo, sAtributo)
                 self.sInicializacaoBasicaParent += "self.{} = {}\n        ".format(sAtributo, sAtributo)
 

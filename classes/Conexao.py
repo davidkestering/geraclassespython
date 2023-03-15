@@ -13,7 +13,7 @@ class Conexao:
         self.sServidor = sServidor
         self.setServidor(sServidor)
         if sServidor == 'LOCAL':
-            self.conectaBD('WINDOWS_SERVER\MSSQLSERVER01', 'sa', 'sa', 'dbteste')
+            self.conectaBD('WINDOWS_SERVER\MSSQLSERVER01', 'sa', 'fb123', 'dbteste')
         elif sServidor == 'BANCO':
             self.conectaBD('localhost', '', '', '')
         else:
@@ -42,18 +42,20 @@ class Conexao:
     def insereErroSql(self, sSql):
         try:
             with self.pConexao.cursor() as cursor:
-                sSqlErroExecucao = f"INSERT INTO seg_erros_mysql (erro,ip,publicado) VALUES ('{self.escapeString(self.getErro())}','{IP_SERVIDOR}',1)"
+                sSqlErroExecucao = f"INSERT INTO seg_erros_sql (erro,ip,publicado) VALUES ('{self.escapeString(self.getErro())}','{IP_SERVIDOR}',1)"
                 cursor.execute(sSqlErroExecucao)
                 self.pConexao.commit()
         except pyodbc.Error as e:
             self.sSqlError = str(e)
-            self.sErro = f'Ocorreu o seguinte erro na inserção do erro na tabela seg_erros_mysql: {self.sSqlError} <br> Query: {sSql}'
+            self.sErro = f'Ocorreu o seguinte erro na inserção do erro na tabela seg_erros_sql: {self.sSqlError} <br> Query: {sSqlErroExecucao}'
 
-    #def recordCount(self):
-    #    return self.pConsulta.rowcount()
+    def recordCount(self):
+        if self.pConsulta.description is not None:
+            return self.pConsulta.rowcount()
 
     def fetchObject(self):
-        return self.pConsulta.fetchone()
+        if self.pConsulta.description is not None:
+            return self.pConsulta.fetchone()
 
     def close(self):
         self.pConexao.close()
@@ -107,7 +109,7 @@ class Conexao:
 
     def pegaTabelas(self):
         self.pConsulta = self.pConexao.cursor()
-        sSql = "SELECT * FROM INFORMATION_SCHEMA.TABLES"
+        sSql = "SELECT * FROM INFORMATION_SCHEMA.TABLES ORDER BY TABLE_NAME"
         self.pConsulta.execute(sSql)
         voObjeto = []
         while True:
@@ -150,3 +152,4 @@ class Conexao:
             voObjeto.append(oReg)
             del oReg
         return voObjeto
+

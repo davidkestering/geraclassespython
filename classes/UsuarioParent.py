@@ -1,5 +1,5 @@
 class UsuarioParent:
-    def __init__(self, nId, nIdGrupoUsuario, sNmUsuario, sLogin, sSenha, sEmail, bLogado, dDtCadastro, bPublicado, bAtivo):
+    def __init__(self, nId,nIdGrupoUsuario,sNmUsuario,sLogin,sSenha,sEmail,bLogado,dDtCadastro,bPublicado,bAtivo):
         self.nId = nId
         self.nIdGrupoUsuario = nIdGrupoUsuario
         self.sNmUsuario = sNmUsuario
@@ -10,7 +10,7 @@ class UsuarioParent:
         self.dDtCadastro = dDtCadastro
         self.bPublicado = bPublicado
         self.bAtivo = bAtivo
-
+        
     def getId(self):
         return self.nId
 
@@ -70,3 +70,5 @@ class UsuarioParent:
 
     def setAtivo(self, bAtivo):
         self.bAtivo = bAtivo
+
+    

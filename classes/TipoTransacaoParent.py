@@ -11,36 +11,36 @@ class TipoTransacaoParent:
         return self.nId
 
     def setId(self, nId):
-        self.Id = nId
+        self.nId = nId
 
     def getIdCategoriaTipoTransacao(self):
         return self.nIdCategoriaTipoTransacao
 
     def setIdCategoriaTipoTransacao(self, nIdCategoriaTipoTransacao):
-        self.IdCategoriaTipoTransacao = nIdCategoriaTipoTransacao
+        self.nIdCategoriaTipoTransacao = nIdCategoriaTipoTransacao
 
     def getTransacao(self):
         return self.sTransacao
 
     def setTransacao(self, sTransacao):
-        self.Transacao = sTransacao
+        self.sTransacao = sTransacao
 
     def getDtCadastro(self):
         return self.dDtCadastro
 
     def setDtCadastro(self, dDtCadastro):
-        self.DtCadastro = dDtCadastro
+        self.dDtCadastro = dDtCadastro
 
     def getPublicado(self):
         return self.bPublicado
 
     def setPublicado(self, bPublicado):
-        self.Publicado = bPublicado
+        self.bPublicado = bPublicado
 
     def getAtivo(self):
         return self.bAtivo
 
     def setAtivo(self, bAtivo):
-        self.Ativo = bAtivo
+        self.bAtivo = bAtivo
 
     

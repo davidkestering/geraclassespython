@@ -24,26 +24,26 @@
     def insere#NOME_CLASSE#(self,o#NOME_CLASSE#, voTransacao, sBanco):
         o#NOME_CLASSE#BD = self.inicializa#NOME_CLASSE#BD(sBanco)
         nId = o#NOME_CLASSE#BD.insere(o#NOME_CLASSE#)
-		if nId and voTransacao != None and hasattr(voTransacao,'__iter__'):
+        if nId and voTransacao != None and hasattr(voTransacao,'__iter__'):
             for oTransacao in voTransacao:
                  if oTransacao != None and isinstance(oTransacao, object):
-                     if not self.insereTransacao(oTransacao, sBanco):
+                     if not oFachadaSeguranca.insereTransacao(oTransacao, sBanco):
                          return False
         if nId and voTransacao != None and not hasattr(voTransacao,'__iter__'):
-            if not self.insereTransacao(voTransacao, sBanco):
+            if not oFachadaSeguranca.insereTransacao(voTransacao, sBanco):
                 return False
         return nId
 
     def altera#NOME_CLASSE#(self,o#NOME_CLASSE#, voTransacao, sBanco):
         o#NOME_CLASSE#BD = self.inicializa#NOME_CLASSE#BD(sBanco)
         bResultado = o#NOME_CLASSE#BD.altera(o#NOME_CLASSE#)
-		if bResultado and voTransacao != None and hasattr(voTransacao,'__iter__'):
+        if bResultado and voTransacao != None and hasattr(voTransacao,'__iter__'):
             for oTransacao in voTransacao:
                  if oTransacao != None and isinstance(oTransacao, object):
-                     if not self.insereTransacao(oTransacao, sBanco):
+                     if not oFachadaSeguranca.insereTransacao(oTransacao, sBanco):
                          return False
         if bResultado and voTransacao != None and not hasattr(voTransacao,'__iter__'):
-            if not self.insereTransacao(voTransacao, sBanco):
+            if not oFachadaSeguranca.insereTransacao(voTransacao, sBanco):
                 return False
         return bResultado
 
@@ -53,10 +53,10 @@
         if bResultado and voTransacao != None and hasattr(voTransacao,'__iter__'):
             for oTransacao in voTransacao:
                  if oTransacao != None and isinstance(oTransacao, object):
-                     if not self.insereTransacao(oTransacao, sBanco):
+                     if not oFachadaSeguranca.insereTransacao(oTransacao, sBanco):
                          return False
         if bResultado and voTransacao != None and not hasattr(voTransacao,'__iter__'):
-            if not self.insereTransacao(voTransacao, sBanco):
+            if not oFachadaSeguranca.insereTransacao(voTransacao, sBanco):
                 return False
         return bResultado
 
@@ -66,10 +66,10 @@
         if bResultado and voTransacao != None and hasattr(voTransacao,'__iter__'):
             for oTransacao in voTransacao:
                  if oTransacao != None and isinstance(oTransacao, object):
-                     if not self.insereTransacao(oTransacao, sBanco):
+                     if not oFachadaSeguranca.insereTransacao(oTransacao, sBanco):
                          return False
         if bResultado and voTransacao != None and not hasattr(voTransacao,'__iter__'):
-            if not self.insereTransacao(voTransacao, sBanco):
+            if not oFachadaSeguranca.insereTransacao(voTransacao, sBanco):
                 return False
         return bResultado
 

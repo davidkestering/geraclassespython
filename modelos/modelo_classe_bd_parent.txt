@@ -16,11 +16,11 @@ class #NOME_CLASSE#BDParent(Conexao):
         oReg = oConexao.fetchObject()
         if oReg:
             o#NOME_CLASSE# = #NOME_CLASSE#(#LISTA_CAMPOS_REG#)
-			vData = str(o#NOME_CLASSE#.getDtCadastro()).split(".")
-			data = datetime.strptime(vData[0] + '.000000', '%Y-%m-%d %H:%M:%S.%f')
-			dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
-			o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
-			return o#NOME_CLASSE#
+            vData = str(o#NOME_CLASSE#.getDtCadastro()).split(".")
+            data = datetime.strptime(vData[0] + '.000000', '%Y-%m-%d %H:%M:%S.%f')
+            dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
+            o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
+            return o#NOME_CLASSE#
         return None
 
     def presente(self, #LISTA_ATRIBUTOS_CHAVE#):
@@ -34,11 +34,11 @@ class #NOME_CLASSE#BDParent(Conexao):
 
     def insere(self, o#NOME_CLASSE#):
         oConexao = self.getConexao()
-		vData = str(o#NOME_CLASSE#.getDtCadastro()).split(".")
-		data = datetime.strptime(vData[0] + '.000000', '%Y-%m-%d %H:%M:%S.%f')
-		dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
-		o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
-		sSql = f"insert into #NOME_TABELA# (#LISTA_CAMPOS_NAO_CHAVE#) values (#VALORES_NAO_CHAVE#)"
+        vData = str(o#NOME_CLASSE#.getDtCadastro()).split(".")
+        data = datetime.strptime(vData[0] + '.000000', '%Y-%m-%d %H:%M:%S.%f')
+        dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
+        o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
+        sSql = f"insert into #NOME_TABELA# (#LISTA_CAMPOS_NAO_CHAVE#) values (#VALORES_NAO_CHAVE#)"
         oConexao.executeInsert(sSql)
         nId = oConexao.getLastId()
         if nId:
@@ -47,11 +47,11 @@ class #NOME_CLASSE#BDParent(Conexao):
 
     def altera(self, o#NOME_CLASSE#):
         oConexao = self.getConexao()
-		vData = str(o#NOME_CLASSE#.getDtCadastro()).split(".")
-		data = datetime.strptime(vData[0] + '.000000', '%Y-%m-%d %H:%M:%S.%f')
-		dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
-		o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
-		sSql = f"update #NOME_TABELA# set #ATRIBUICAO_NAO_CHAVE# where #COMPARACAO_CHAVE_ATRIBUTO_ESP#"
+        vData = str(o#NOME_CLASSE#.getDtCadastro()).split(".")
+        data = datetime.strptime(vData[0] + '.000000', '%Y-%m-%d %H:%M:%S.%f')
+        dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
+        o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
+        sSql = f"update #NOME_TABELA# set #ATRIBUICAO_NAO_CHAVE# where #COMPARACAO_CHAVE_ATRIBUTO_ESP#"
         oConexao.executeInsert(sSql)
         return oConexao.getConsulta()
 
@@ -78,14 +78,14 @@ class #NOME_CLASSE#BDParent(Conexao):
         while True:
             oReg = oConexao.fetchObject()
             if oReg != None:
-				o#NOME_CLASSE# = #NOME_CLASSE#(#LISTA_CAMPOS_REG#)
-				vData = str(o#NOME_CLASSE#.getDtCadastro()).split(".")
-				data = datetime.strptime(vData[0] + '.000000', '%Y-%m-%d %H:%M:%S.%f')
-				dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
-				o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
-				voObjeto.append(o#NOME_CLASSE#)
-				del o#NOME_CLASSE#
-			else:
+                o#NOME_CLASSE# = #NOME_CLASSE#(#LISTA_CAMPOS_REG#)
+                vData = str(o#NOME_CLASSE#.getDtCadastro()).split(".")
+                data = datetime.strptime(vData[0] + '.000000', '%Y-%m-%d %H:%M:%S.%f')
+                dDataCadastro = data.strftime('%Y-%m-%d %H:%M:%S')
+                o#NOME_CLASSE#.setDtCadastro(dDataCadastro)
+                voObjeto.append(o#NOME_CLASSE#)
+                del o#NOME_CLASSE#
+            else:
                 break
         return voObjeto
 
